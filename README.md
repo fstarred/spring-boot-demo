@@ -30,3 +30,35 @@ It covers some aspects such as:
 * Async method management
 * Web Exception handling
 * Testing (Unit & Integration tests)
+
+### Preparing environments
+
+#### Mongodb
+
+```
+docker run --name some-mongo -p 27017:27017 -d mongo:latest
+```
+
+See also:
+
+https://hub.docker.com/_/mongo
+
+#### MySQL
+
+```
+docker run --name=mysql1 -p 3306:3306 -d mysql/mysql-server
+docker logs mysql1 2>&1 | grep GENERATED
+<grep generated password>
+docker exec -it mysql1 mysql -uroot -p
+<enter generated password above>
+
+mysql> ALTER USER 'root'@'localhost' IDENTIFIED BY 'password';
+mysql> create database db_example;
+mysql> create user 'springuser'@'%' identified by 'ThePassword';
+mysql> grant all on db_example.* to 'springuser'@'%';
+```
+
+See also: 
+
+https://hub.docker.com/r/mysql/mysql-server/
+

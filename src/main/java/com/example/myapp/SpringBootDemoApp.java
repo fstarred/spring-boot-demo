@@ -12,10 +12,10 @@ import org.springframework.scheduling.annotation.EnableAsync;
 @EnableJpaRepositories(basePackages = "com.example.myapp.mysql")
 @EnableMongoRepositories(basePackages = "com.example.myapp.mongodb")
 @SpringBootApplication
-public class MongodbRestApplication {
+public class SpringBootDemoApp {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MongodbRestApplication.class, args);
+		SpringApplication.run(SpringBootDemoApp.class, args);
 	}
 
 }
