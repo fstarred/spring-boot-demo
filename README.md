@@ -25,7 +25,8 @@ It covers some aspects such as:
 
 * REST API implementation and documentation (swagger)
 * JPA using MySQL db and Caching implementation
-* MongoDB
+* MongoDB connection
+* Kafka messaging
 * Spring Caching implementation
 * Async method management
 * Web Exception handling
@@ -62,3 +63,18 @@ See also:
 
 https://hub.docker.com/r/mysql/mysql-server/
 
+#### Kafka
+
+Build and run docker-compose.yaml by executing following command on project root:
+
+```
+docker compose up -d
+```
+
+Once kafka container has started, it is possible to 
+listen message by executing one of the following:
+
+```
+docker exec -it development-kafka-1 ./opt/bitnami/kafka/bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic manual-topic
+docker exec -it development-kafka-1 ./opt/bitnami/kafka/bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic manual-upper-topic
+```
